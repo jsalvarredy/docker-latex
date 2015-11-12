@@ -5,14 +5,19 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update -q && apt-get -y dist-upgrade
 RUN apt-get install -qy texlive-latex-base texlive-lang-spanish \
                         texlive-binaries texlive-latex-extra xindy \
+                        texlive-science  texlive-full \
                         texlive-fonts-recommended python-pygments gnuplot
 
 
 RUN apt-get remove -y texlive-latex-base-doc texlive-latex-recommended-doc \
-                     texlive-latex-extra-doc texlive-fonts-recommended-doc
+                     texlive-latex-extra-doc texlive-fonts-recommended-doc \
+                     texlive-fonts-extra-doc texlive-humanities-doc \
+                     texlive-latex-base-doc texlive-latex-extra-doc \
+                     texlive-latex-recommended-doc texlive-metapost-doc \
+                     texlive-pictures-doc texlive-pstricks-doc \
+                     texlive-publishers-doc texlive-science-doc
 
-RUN apt-get -y autoremove && \
-    apt-get -y clean && \
+RUN apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /tmp/*
 
