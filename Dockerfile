@@ -28,3 +28,4 @@ RUN ln -s /usr/share/xindy/lang/spanish/modern-utf8.xdy  /usr/share/xindy/lang/s
 
 WORKDIR /data
 VOLUME ["/data"]
+
